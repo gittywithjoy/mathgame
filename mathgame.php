@@ -24,14 +24,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $answer = "";
     $correctAnswer = $_POST["actualAnswer"];
     if ($userAnswer == $correctAnswer){
-    $message = "Correct.";
+    $message = "Correct";
     $correct = $correct + 1;
     $total = $total + 1;
 }  else if(!is_numeric($_POST["answer"])){
-        $message = "Please enter a number.";
+        $message = "Please enter a number";
     }
     else {
-    $message = "Incorrect.";
+    $message = "Incorrect";
     $total = $total + 1;
 }
     $_SESSION["correct"] = $correct;
@@ -95,10 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             <p>
                 <?php echo $message ?>
             </p>
-            <p>Your answer:
-                <?php echo $userAnswer ?>
-            </p>
-            <p>Actual answer:
+            <p>Correct answer:
                 <?php echo $correctAnswer ?>
             </p>
         </div>
