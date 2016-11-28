@@ -11,19 +11,19 @@ $operator = $operators[rand(0,1)];
 $rightNum = rand(0,20);
 $error = "";
 if ($operator == '+'){
-    $actualAnswer = $leftNum + $rightNum;
+    $realAnswer = $leftNum + $rightNum;
 } else {
-    $actualAnswer = $leftNum - $rightNum;
+    $realAnswer = $leftNum - $rightNum;
 }
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     
     $answer = $_POST["answer"];
-    $yourAnswer = $answer;
+    $userAnswer = $answer;
     $answer = "";
-    $theAnswer = $_POST["actualAnswer"];
-    if ($yourAnswer == $theAnswer){
+    $correctAnswer = $_POST["actualAnswer"];
+    if ($userAnswer == $correctAnswer){
     $message = "Correct.";
     $correct = $correct + 1;
     $total = $total + 1;
@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 <div class="col-sm-3"></div>
             </div>
 
-            <input type="hidden" name="actualAnswer" value="<?php echo htmlspecialchars($actualAnswer);?>" />
+            <input type="hidden" name="actualAnswer" value="<?php echo htmlspecialchars($realAnswer);?>" />
 
             <div class="form-group">
                 <div class="col-sm-3 col-sm-offset-4">
@@ -96,10 +96,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 <?php echo $message ?>
             </p>
             <p>Your answer:
-                <?php echo $yourAnswer ?>
+                <?php echo $userAnswer ?>
             </p>
             <p>Actual answer:
-                <?php echo $theAnswer ?>
+                <?php echo $correctAnswer ?>
             </p>
         </div>
         <div class="row">
