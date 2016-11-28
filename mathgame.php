@@ -2,7 +2,7 @@
 ob_start();
 session_start();
 ?>
-    <?php
+<?php
 $correct = $_SESSION["correct"];
 $total = $_SESSION["total"];
 $leftNum = rand(0,20);
@@ -16,9 +16,7 @@ if ($operator == '+'){
     $realAnswer = $leftNum - $rightNum;
 }
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    
     $answer = $_POST["answer"];
     $userAnswer = $answer;
     $answer = "";
@@ -27,20 +25,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $message = "Correct";
     $correct = $correct + 1;
     $total = $total + 1;
-}  else if(!is_numeric($_POST["answer"])){
+    } else if(!is_numeric($_POST["answer"])){
         $message = "Please enter a number";
-    }
-    else {
+    } else {
     $message = "Incorrect";
     $total = $total + 1;
-}
+    }
     $_SESSION["correct"] = $correct;
     $_SESSION["total"] = $total;
-    
 }
-
-
-
 ?>
 
 <!DOCTYPE HTML>
@@ -54,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <body>
     <div class="container">
-        <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>" method="post" role="form" class="form-horizontal">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" role="form" class="form-horizontal">
             <div class="row">
                 <div class="col-sm-4 col-sm-offset-4">
                     <h1>Math Game</h1></div>
