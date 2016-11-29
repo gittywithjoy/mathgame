@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="col-sm-4"></div>
         </div>
         <div class="row">
-            <div class="col-sm-4 col-sm-offset-4">&nbsp;Score:
+            <div class="col-sm-4 col-sm-offset-4">Score:
                 <?php echo $correct?> /
                     <?php echo $total?>
             </div>
