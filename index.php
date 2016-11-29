@@ -1,5 +1,5 @@
-<?php ob_start();
-session_start(); ?>
+<?php session_start();
+ob_start(); ?>
 
 <!DOCTYPE HTML>
 <html lang="en">
